@@ -5,12 +5,14 @@ This  project for currency conversion and checking exchange rates
 
 How to use
 ----------
-+Clone the Project ```git clone https://github.com/dannijax/fx-converter.git```
-+Import the project in Android Studio
-+Get API key from [currencylayer](https://currencylayer.com/dashboard)
-+Replace the Access_Key in the gradle.properties file
-+Sync the project, Build and run the application
-
++ Clone the Project:
+ ```bash
+git clone https://github.com/dannijax/fx-converter.git  
+```
++ Import the project in Android Studio
++ Get API key from [currencylayer](https://currencylayer.com)
++ Replace the Access_Key in the gradle.properties file
++ Sync the project, Build and run the application
 
 
 Static Analyzers
