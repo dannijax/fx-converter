@@ -24,4 +24,5 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="settings">view settings</string>
     <string name="flag">country flag</string>
+    <string name="sync_time_unavailable">Last sync time unavailable, please check your internet connection</string>
 </resources>

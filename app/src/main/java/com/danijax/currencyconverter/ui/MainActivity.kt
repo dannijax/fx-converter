@@ -2,6 +2,7 @@ package com.danijax.currencyconverter.ui
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
@@ -67,9 +68,14 @@ class MainActivity : AppCompatActivity() {
     private fun setUpViewModelListeners() {
         viewModel.uiState.observe(this, {
             val state = it ?: return@observe
-            //state.showLoading?.let { show -> binding.progressbar.showOrHide(show) }
-            binding.syncTime.text =
-                getString(R.string.format_date, state.syncTime?.toLong()?.toDateTime()?.formatFor())
+            Log.e("TAG", "setUpViewModelListeners: ${state.syncTime} ", )
+            if (state.syncTime == "0"){
+                binding.syncTime.setText(R.string.sync_time_unavailable)
+            }
+            else{
+                binding.syncTime.text =
+                    getString(R.string.format_date, state.syncTime?.toLong()?.toDateTime()?.formatFor())
+            }
             if (state.message != 0) {
                 binding.errorMessage.showOrHide(true)
                 binding.errorMessage.setTextColor(Color.RED)

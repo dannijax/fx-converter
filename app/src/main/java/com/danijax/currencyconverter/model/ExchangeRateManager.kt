@@ -5,7 +5,7 @@ package com.danijax.currencyconverter.model
  * Manager for operations on Exchange rates
  */
 class ExchangeRateManager(
-    var baseCurrency: Currency = Currency("USD", "United State"),
+    var baseCurrency: Currency = Currency("USD", "United States Of America"),
     private val quotes: Map<String, Float>,
     private val supportedCountries: List<Currency>
 ) {
