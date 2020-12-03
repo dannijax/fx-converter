@@ -22,8 +22,6 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromJsonElement
-import kotlinx.serialization.json.encodeToJsonElement
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -37,6 +35,7 @@ private const val TAG = "Local Data Source"
 class CurrencyLocalDataSource private constructor(private val context: Context) {
     private val executor = Executors.newSingleThreadExecutor()
     private val scope = CoroutineScope(SupervisorJob() + executor.asCoroutineDispatcher())
+
 
     /**
      * Initialize DataStore
@@ -174,14 +173,6 @@ class CurrencyLocalDataSource private constructor(private val context: Context) 
 
     }
 
-    suspend fun saveSyncTimeInterval(interval: Long) {
-        save(interval.toString(), PreferencesKeys.SYNC_INTERVAL)
-    }
-
-    suspend fun updateLastSync(time: Long) {
-        save(time.toString(), PreferencesKeys.UPDATED_AT)
-    }
-
     suspend fun saveErrorState(error: ErrorStates){
         val err = Json.encodeToString(error)
         save(err, PreferencesKeys.ERROR_STATE)
@@ -195,6 +186,7 @@ class CurrencyLocalDataSource private constructor(private val context: Context) 
      * Save Supported currencies from file in Asset and save in DataStore
      */
     fun saveSupportedCurrencies() {
+        //TODO: Save only once to improve performance
         val countries =
             context.assets.open("supported_currencies.json").readBytes().toString(Charsets.UTF_8)
         scope.launch {
@@ -203,7 +195,7 @@ class CurrencyLocalDataSource private constructor(private val context: Context) 
     }
 
     /**
-     * Model of Data for display to users
+     * Model of Data for display on UI
      */
     data class DataStorePreference(
         val lastSyncTime: Long,
@@ -216,6 +208,7 @@ class CurrencyLocalDataSource private constructor(private val context: Context) 
     companion object {
         @Volatile
         private var INSTANCE: CurrencyLocalDataSource? = null
+        private const val defaultSyncInterval = 30L
 
         fun getInstance(context: Context): CurrencyLocalDataSource {
             return INSTANCE ?: synchronized(this) {
@@ -233,7 +226,7 @@ class CurrencyLocalDataSource private constructor(private val context: Context) 
             val constraints = Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build()
-            val request = PeriodicWorkRequestBuilder<QuotesDownloadWork>(10, TimeUnit.SECONDS)
+            val request = PeriodicWorkRequestBuilder<QuotesDownloadWork>(defaultSyncInterval, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build()
             WorkManager.getInstance(context).enqueue(request)

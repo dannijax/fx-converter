@@ -16,8 +16,7 @@ class UtilitiesKtTest {
     @Test
     fun `test number formating to exponetial form`(){
         val number = "100000000"
-
-        println(number.formatExponentialForm())
+        assertTrue(number.formatExponentialForm() == "1E8")
 
     }
 }

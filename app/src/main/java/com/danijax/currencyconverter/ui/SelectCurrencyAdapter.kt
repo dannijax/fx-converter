@@ -40,6 +40,7 @@ class SelectCurrencyAdapter(context: Context) :
         return view
     }
 
+    // Helper function to update adapter with changes
     fun update(currencies: List<Currency>?) {
         currencies?.let {
 

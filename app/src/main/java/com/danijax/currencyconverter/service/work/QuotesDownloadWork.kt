@@ -3,7 +3,6 @@ package com.danijax.currencyconverter.service.work
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.danijax.currencyconverter.R
 import com.danijax.currencyconverter.data.CurrencyLocalDataSource
 import com.danijax.currencyconverter.data.CurrencyRemoteSource
 import com.danijax.currencyconverter.data.ErrorStates
@@ -24,6 +23,7 @@ class QuotesDownloadWork(
 
     private val networkErrorCode = 1000
 
+    //Main work in the background. Download and update local data source
     override suspend fun doWork(): Result {
         var result: Result? = null
 
@@ -72,7 +72,7 @@ class QuotesDownloadWork(
         return result ?: Result.failure()
     }
 
-
+    // Request for new data from remote source
     private suspend fun getQuotes(): Flow<CurrencyResponseModel> {
         return CurrencyRemoteSource.getInstance(ApiClient.createService(ApiService::class.java))
             .getQuotes()

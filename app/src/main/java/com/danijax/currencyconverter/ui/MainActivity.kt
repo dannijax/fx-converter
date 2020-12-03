@@ -2,7 +2,6 @@ package com.danijax.currencyconverter.ui
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         viewModel =
             ViewModelProvider(
                 this,
-                CurrencyViewModelFactory(CurrencyRepository(assets, source))
+                CurrencyViewModelFactory(CurrencyRepository(source))
             ).get(
                 ExchangeRateViewModel::class.java
             )
@@ -128,10 +127,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun manageInputTextFocus(){
-        binding.top.amount.setFocusableInTouchMode(false);
-        binding.top.amount.setFocusable(false);
-        binding.top.amount.setFocusableInTouchMode(true);
-        binding.top.amount.setFocusable(true);
+        binding.top.amount.isFocusableInTouchMode = false
+        binding.top.amount.isFocusable = false
+        binding.top.amount.isFocusableInTouchMode = true
+        binding.top.amount.isFocusable = true
     }
 
 }

@@ -32,6 +32,7 @@ class ExchangeRatesViewHolder(
     }
 
 
+    // Helper function for creating new instance of ViewHolder
     companion object {
         fun create(parent: ViewGroup): ExchangeRatesViewHolder {
             val view = LayoutInflater.from(parent.context)

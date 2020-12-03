@@ -1,14 +1,12 @@
 package com.danijax.currencyconverter.model
 
 
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.decodeFromString
-import org.junit.Assert.*
-import org.junit.Test
-import java.math.BigDecimal
-import java.math.RoundingMode
 import com.danijax.currencyconverter.toDateTime
 import com.danijax.currencyconverter.toTimeStamp
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import org.junit.Assert.assertTrue
+import org.junit.Test
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 

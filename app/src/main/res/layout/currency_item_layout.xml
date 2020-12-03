@@ -15,6 +15,7 @@
         app:srcCompat="@mipmap/ic_launcher"
         android:layout_margin="10dp"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        android:contentDescription="@string/flag"
         />
 
     <TextView
@@ -30,13 +31,13 @@
         android:id="@+id/country_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/flag"/>
+        android:layout_toEndOf="@+id/flag"/>
 
     <TextView
         android:id="@+id/country_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/flag"
+        android:layout_toEndOf="@+id/flag"
         android:textSize="@dimen/small_text"
         android:ellipsize="end"
         android:singleLine="false"
@@ -49,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/flag"
+        android:layout_toEndOf="@+id/flag"
         android:layout_below="@+id/country_name"/>
 
 </RelativeLayout>

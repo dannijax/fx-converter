@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:drawableLeft="@null"/>
+                    android:hint="@string/select"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/flag"
@@ -66,6 +66,7 @@
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                     android:clickable="false"
                     android:focusable="false"
+                    android:contentDescription="@string/flag"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -74,8 +75,8 @@
                 android:id="@+id/country_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="UnitedStates Of America"/>
+                android:textSize="@dimen/text_size" />
+
         </LinearLayout>
 
 

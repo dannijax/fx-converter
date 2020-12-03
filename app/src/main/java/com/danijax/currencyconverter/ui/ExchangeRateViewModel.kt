@@ -8,11 +8,9 @@ import com.danijax.currencyconverter.R
 import com.danijax.currencyconverter.data.CurrencyRepository
 import com.danijax.currencyconverter.data.ErrorStates
 import com.danijax.currencyconverter.model.Currency
-import com.danijax.currencyconverter.toTimeStamp
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
 
 class ExchangeRateViewModel(private val repo: CurrencyRepository) : ViewModel() {
 
@@ -23,6 +21,7 @@ class ExchangeRateViewModel(private val repo: CurrencyRepository) : ViewModel() 
     val amountState = _amountState.asLiveData()
 
 
+    // get Store Preference Data and update new values through live data
     fun getDataStorePreferences() {
         viewModelScope.launch {
             val d = Int
@@ -49,6 +48,7 @@ class ExchangeRateViewModel(private val repo: CurrencyRepository) : ViewModel() 
         }
     }
 
+    // Update listener with new value for conversion
     fun updateAmount(amount: Float) {
         _amountState.value = amount
     }
@@ -61,6 +61,7 @@ data class CurrencyExchangeRateUiState(
     val quotes: Map<String, Float>? = null,
     val syncTime: String? = null
 )
+
 
 class CurrencyViewModelFactory(private val repo: CurrencyRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

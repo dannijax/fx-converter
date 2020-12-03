@@ -2,9 +2,8 @@ package com.danijax.currencyconverter.data
 
 import kotlinx.serialization.Serializable
 
-
 @Serializable
-sealed class ErrorStates() {
+sealed class ErrorStates {
     @Serializable
     data class DeveloperError(val code: Int): ErrorStates()
     @Serializable

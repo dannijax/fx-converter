@@ -11,8 +11,26 @@ git clone https://github.com/dannijax/fx-converter.git
 ```
 + Import the project in Android Studio
 + Get API key from [currencylayer](https://currencylayer.com)
-+ Replace the Access_Key in the gradle.properties file
++ Add the gradle.properties file which includes my ACCESS Key or copy the contents in file to the new gradle.properties file
++ There are 2 build vaiants in the project.
++ + Submission
+  + Debug
++ switch to the submission variant
 + Sync the project, Build and run the application
+
+Unit Tests
+==========
+Unit tests can be found in the app/src/test directory
+
+
+Work Remaining
+==============
++ Add UI integration tests
++ Add Test for viewmodel
+
+Future features
+===============
++ Add settings screen for users to change sync interval time dynamically
 
 
 Static Analyzers

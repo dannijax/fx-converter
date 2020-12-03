@@ -22,6 +22,7 @@ class CurrencyRemoteSource constructor(private val apiService: ApiService) {
         }
     }
 
+    // Request for data from API
     suspend fun getQuotes(): Flow<CurrencyResponseModel> {
         return flow {
             val flowResult = apiService.getQuotes()
