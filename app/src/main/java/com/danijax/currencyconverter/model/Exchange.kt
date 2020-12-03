@@ -59,7 +59,7 @@ class Exchange(private val from: Currency, private val to: Currency) {
         return extrapolated.rateCode() to formatted.toFloat()
     }
 
-    private fun formatToDP(places: Int = 6, value: Float) = BigDecimal(value.toDouble())
+    private fun formatToDP(places: Int = 2, value: Float) = BigDecimal(value.toDouble())
         .setScale(places, RoundingMode.FLOOR)
 
 

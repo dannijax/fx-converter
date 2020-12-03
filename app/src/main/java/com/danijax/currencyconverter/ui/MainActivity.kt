@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        manageInputTextFocus()
         val source = CurrencyLocalDataSource.getInstance(this)
         viewModel =
             ViewModelProvider(
@@ -49,10 +50,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.top.amount.doAfterTextChanged { value ->
             val amount = value.toString().trim()
-            if (amount.isNotEmpty()) {
-                viewModel.updateAmount(amount.toFloat())
+            val result = if (amount.isNotEmpty()) amount.toFloat() else 0.0F
 
-            }
+                viewModel.updateAmount(result)
+
+
         }
 
         binding.settings.setOnClickListener {
@@ -123,6 +125,13 @@ class MainActivity : AppCompatActivity() {
         binding.currencyList.addItemDecoration(decoration)
         binding.currencyList.layoutManager = LinearLayoutManager(this)
         binding.currencyList.adapter = exchangeListAdapter
+    }
+
+    private fun manageInputTextFocus(){
+        binding.top.amount.setFocusableInTouchMode(false);
+        binding.top.amount.setFocusable(false);
+        binding.top.amount.setFocusableInTouchMode(true);
+        binding.top.amount.setFocusable(true);
     }
 
 }

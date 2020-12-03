@@ -41,31 +41,31 @@ See http://tools.android.com/tips/lint/suppressing-lint-warnings for more detail
 
 Results can be found in ./build/lint-results.html
 
-### FindBugs
-http://findbugs.sourceforge.net
+<!--### FindBugs-->
+<!--http://findbugs.sourceforge.net-->
 
-FindBug configuration files can be found in ./gradle/config/findbugs folder.
+<!--FindBug configuration files can be found in ./gradle/config/findbugs folder.-->
 
-To suppress FindBug warnings add following dependency to your module:
-```groovy
-compile 'com.google.code.findbugs:annotations:2.0.+'
-```
-You can then use @SuppressFBWarnings() annotation.
+<!--To suppress FindBug warnings add following dependency to your module:-->
+<!--```groovy-->
+<!--compile 'com.google.code.findbugs:annotations:2.0.+'-->
+<!--```-->
+<!--You can then use @SuppressFBWarnings() annotation.-->
 
-See http://findbugs.sourceforge.net/manual/index.html for more details.
+<!--See http://findbugs.sourceforge.net/manual/index.html for more details.-->
 
-Results can be found in ./build/reports/findbugs
+<!--Results can be found in ./build/reports/findbugs-->
 
-### PMD
-http://pmd.sourceforge.net
+<!--### PMD-->
+<!--http://pmd.sourceforge.net-->
 
-PMD configuration file can be found in ./gradle/config/pmd folder.
+<!--PMD configuration file can be found in ./gradle/config/pmd folder.-->
 
-To suppress PMD warning you can use @SuppressWarnings("PMD[.%RULE%]") annotation.
+<!--To suppress PMD warning you can use @SuppressWarnings("PMD[.%RULE%]") annotation.-->
 
-See http://pmd.sourceforge.net/pmd-5.1.0/suppressing.html for more details.
+<!--See http://pmd.sourceforge.net/pmd-5.1.0/suppressing.html for more details.-->
 
-Results can be found in ./build/reports/pmd
+<!--Results can be found in ./build/reports/pmd-->
 
 ### CheckStyle
 http://checkstyle.sourceforge.net
@@ -82,12 +82,12 @@ String s= "Some"+
 
 Results can be found in ./build/reports/checkstyle
 
-Details
-----------------------
+<!--Details-->
+<!-------------------------->
 
-More in detail you can read about types of projects in readme files:
+<!--More in detail you can read about types of projects in readme files:-->
 
- + [android-simple-example](android-simple-example/README.md)
- + [android-extend-example](android-extended-example/README.md)
- + [android-sdk-manager-example](android-sdk-manager-example/README.md)
+<!-- + [android-simple-example](android-simple-example/README.md)-->
+<!-- + [android-extend-example](android-extended-example/README.md)-->
+<!-- + [android-sdk-manager-example](android-sdk-manager-example/README.md)-->
 

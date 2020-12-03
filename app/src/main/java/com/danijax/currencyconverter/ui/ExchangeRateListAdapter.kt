@@ -25,6 +25,7 @@ class ExchangeRateListAdapter(private var manager: ExchangeRateManager?) :
 
     fun setExchangeRateManager(exchangeRateManager: ExchangeRateManager) {
         this.manager = exchangeRateManager
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExchangeRatesViewHolder {

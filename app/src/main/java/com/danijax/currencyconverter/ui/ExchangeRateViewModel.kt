@@ -22,11 +22,6 @@ class ExchangeRateViewModel(private val repo: CurrencyRepository) : ViewModel() 
     private val _amountState = MutableStateFlow(0.0F)
     val amountState = _amountState.asLiveData()
 
-    fun updateLastSyncTime(date: LocalDateTime) {
-        viewModelScope.launch {
-            repo.saveLastSyncTime(date.toTimeStamp())
-        }
-    }
 
     fun getDataStorePreferences() {
         viewModelScope.launch {
